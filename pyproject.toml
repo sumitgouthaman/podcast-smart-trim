@@ -1,0 +1,12 @@
+[project]
+name = "podcast-smart-trim"
+version = "0.1.0"
+description = "AI-powered CLI tool that automatically identifies and removes advertisement segments from podcasts."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+    "google-generativeai>=0.8.5",
+    "openai-whisper>=20250625",
+    "python-dotenv>=1.2.1",
+]

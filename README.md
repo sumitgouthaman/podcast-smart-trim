@@ -26,15 +26,15 @@
    cd podcast-smart-trim
    ```
 
-2. Create and activate a virtual environment:
+2. Install uv (if not already installed):
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+   # macOS/Linux
+   curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   uv sync
    ```
 
 4. Set up your API key (optional, can also be passed via CLI):
@@ -47,7 +47,7 @@
 Run the tool on a podcast audio file:
 
 ```bash
-python src/main.py path/to/podcast.mp3
+uv run src/main.py path/to/podcast.mp3
 ```
 
 ### Options
@@ -67,23 +67,23 @@ python src/main.py path/to/podcast.mp3
 
 **Basic usage:**
 ```bash
-python src/main.py episode1.mp3
+uv run src/main.py episode1.mp3
 ```
 
 **Using a larger Whisper model for better accuracy:**
 ```bash
-python src/main.py episode1.mp3 --model medium
+uv run src/main.py episode1.mp3 --model medium
 ```
 
 **Debug mode (verifying ads):**
 ```bash
-python src/main.py episode1.mp3 --debug
+uv run src/main.py episode1.mp3 --debug
 # Creates episode1_cleaned.mp3 AND episode1_ads.mp3
 ```
 
 **Custom cache location:**
 ```bash
-python src/main.py episode1.mp3 --cache_dir /tmp/podcache
+uv run src/main.py episode1.mp3 --cache_dir /tmp/podcache
 ```
 
 ## How It Works
