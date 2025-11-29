@@ -71,6 +71,10 @@ def remove_ads(input_file, ad_segments, output_file):
         "-i", input_file,
         "-filter_complex", filter_complex,
         "-map", "[out]",
+        "-map", "0:v?",       # Map video streams (cover art) if present
+        "-map_metadata", "0", # Copy global metadata
+        "-c:v", "copy",       # Copy video stream without re-encoding
+        "-id3v2_version", "3",# Ensure ID3v2.3 for compatibility
         output_file
     ]
     
@@ -113,6 +117,10 @@ def extract_ads(input_file, ad_segments, output_file):
         "-i", input_file,
         "-filter_complex", filter_complex,
         "-map", "[out]",
+        "-map", "0:v?",       # Map video streams (cover art) if present
+        "-map_metadata", "0", # Copy global metadata
+        "-c:v", "copy",       # Copy video stream without re-encoding
+        "-id3v2_version", "3",# Ensure ID3v2.3 for compatibility
         output_file
     ]
     
